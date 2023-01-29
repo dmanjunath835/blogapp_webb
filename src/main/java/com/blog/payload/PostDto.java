@@ -1,5 +1,9 @@
 package com.blog.payload;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,8 +12,14 @@ import lombok.NoArgsConstructor;
 @Data
 public class PostDto {
 	private long id;
+	@NotNull
+	@Size(min = 2,message = "title should be only two character!")
 private String title;
+	@NotNull
+	@Size(min = 4,message = "description should be 4 character!")
 private String description;
+	@NotNull
+	@NotEmpty
 private String content;
 public long getId() {
 	return id;
